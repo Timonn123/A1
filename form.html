@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="layout.css" type="text/css">
+        <style>
+         .link-container a {
+    text-decoration: none;
+    color: #401ad8; 
+    margin-right: 40px; 
+  }
+         body{
+              text-align: center; font-family: sans-serif;
+               }   
+         h1{font-size: 20px;
+             }  
+         
+table tr td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+fieldset{width:500px; text-align: center}
+
+        </style>
+        <div id="header">
+    <h1> New User Registration</h1>
+        </div>
+
+    <div id="content">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
+    </head>
+    <script>
+ function validate()
+ {
+     
+      var fn = frm.fname.value;
+     for(x in fn)
+         {
+             ch=fn.charCodeAt(x);
+             if(ch<65||ch>90 && ch<97||ch>122)
+                 {
+                 alert("Invalid firstname");
+                 return false;
+                 }
+         }
+         var ln = frm.lname.value;
+     for(y in ln)
+         {
+             ch=ln.charCodeAt(y);
+             if(ch<65||ch>90 && ch<97||ch>122)
+                 {
+                 alert("Invalid lastname");
+                 return false;
+                 }
+         }
+     var phn = frm.phone.value;
+     var lenp = phn.length;
+     if (lenp!==10)
+     {    alert("Phone no should be exactly 10 digits");
+         return false;
+     }
+    
+    var pwd1=frm.pwd.value;
+    var pwdl=pwd1.length;
+    if(pwdl%2===1)
+        {
+        alert("Password should contain even number of characters");
+        return false;
+        }
+    if(pwdl > 8)
+        {
+            alert("Password should not exceed 8 digits");
+            return false;
+        }
+   
+     var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+     var mail=frm.mailid.value;
+if (reg.test(mail)){
+alert("Valid email"); }
+else{
+    alert("Invalid email");
+return false;
+}
+ 
+        
+    return true;
+ }
+ 
+    </script>
+    <div id="container">
+    <body>
+    <center>
+      <div class="link-container">
+         <a href="index.html">HOME</a>
+         <a href="about.html">ABOUT US</a>
+         <a href="contact.html">CONTACT US</a>
+         <a href="form.html">REGISTRATION</a>
+         <a href="login.html">LOGIN</a>
+         <br>
+         <br>
+         </div>
+         <marquee><h1 style="color:rgb(255, 0, 212)" heigth="200" width="300" >REGISTRATION FORM</h1></marquee>
+        <form name="frm" method="POST" action="success.html" onSubmit="return validate()">
+            
+            <fieldset align="center">
+            
+                <table align="center">
+                    
+                     <tr><td>First Name: </td><td><input type="text" name="fname"  value=""required size="50" /></td></tr>
+                     <tr><td>Last Name: </td><td> <input type="text" name="lname" value=""required size="50" /></td></tr>
+                     <tr><td>Phone No: </td><td>  <input type="text" name="phone" value=""required size="50" /></td></tr>
+                    <tr><td>Mail id:</td><td><input type="text" name="mailid" value=""required size="50" /></td></tr>
+                    <tr><td>Gender:</td>
+                        <td>Male:  <input type="radio" name="gender" value="male" >
+                            Female:   <input type="radio" name="gender" value="female"></td></tr>
+                    <tr><td>DOB :</td><td><input type="date" name="dob" value="DD/MM/YYYY"required size="50" /></td></tr>
+                    
+                    <tr><td>Username:</td><td><input type="text" name="uname" value=""required size="50" /></td></tr>
+                    <tr><td>Password:</td><td><input type="password" name="pwd" value=""required size="50" /></td></tr>
+                    
+                    <tr><td>Age:</td><td><input type="text" name="age" value=""required size="50" /></td></tr>
+                </table>
+                <input type="submit" value="SUBMIT" name="submit" />
+          
+            </fieldset>
+        </form>
+    </div>
+        </center>
+    </body>
+   
+</div>
+</html>
